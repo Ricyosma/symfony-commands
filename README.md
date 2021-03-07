@@ -64,61 +64,7 @@ Voor een naf bar (verander de juiste dingen)
         </ul>
 </div>
 </nav>
-
-Easyadmin 3 config:
-class DashboardController extends AbstractDashboardController
-{
-    /**
-     * @Route("/admin", name="admin")
-     * @return Response
-     */
-    public function index(): Response
-    {
-        $routeBuilder = $this->get(CrudUrlGenerator::class)->build();
-
-        return $this->redirect($routeBuilder->setController(NewsCrudController::class)->generateUrl());
-    }
-
-    public function configureDashboard(): Dashboard
-    {
-        return Dashboard::new()
-            ->setTitle('Titel');
-    }
-    public function configureMenuItems(): iterable
-    {
-        yield MenuItem::section('Administration');
-        yield MenuItem::linktoDashboard('Dashboard', 'fa fa-home');
-        yield MenuItem::linkToCrud('Users', 'fa fa-user', User::class);
-
-    }
-}
-
-Voor een easyadmin3 crud:
-php bin/console make:admin:crud
-
-Voor pictures:
-        $filename     = ImageField::new('imageName', 'File')
-        ->setBasePath('images/news')
-        ->setUploadDir('public/images/news');
-
-return[
-            TextField::new('title'),
-            $textfield,
-            BooleanField::new('frontpage'),
-            TextField::new('imageName'),
-            $filename
-];
-
-
-Met problemen met de pictures, verwijder dit in de source.
-Zit in EasyAdminBundle/src/Form/Type/FileUploadType.php:
-
-
-if (0 !== mb_strpos($value, \DIRECTORY_SEPARATOR)) {
-
-$value = $this->projectDir.'/'.$value;
-
-}
 https://symfony.com/doc/current/doctrine/associations.html
 
+Iets met een randommizer????
 
