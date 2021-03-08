@@ -32,9 +32,7 @@ twig(staat in config):
     form_themes:
         - 'bootstrap_4_horizontal_layout.html.twig'
 
-https://github.com/dompdf/dompdf
-https://symfony.com/doc/2.x/bundles/EasyAdminBundle/integration/vichuploaderbundle.html
-composer require easycorp/easyadmin-bundle
+
 
 
 Voor een naf bar (verander de juiste dingen)
@@ -65,6 +63,18 @@ Voor een naf bar (verander de juiste dingen)
 </div>
 </nav>
 https://symfony.com/doc/current/doctrine/associations.html
+https://symfony.com/doc/current/reference/forms/types/entity.html
+https://github.com/dompdf/dompdf
+https://ourcodeworld.com/articles/read/799/how-to-create-a-pdf-from-html-in-symfony-4-using-dompdf
 
-Iets met een randommizer????
+        {% if app.user %}
+            <a class="btn btn-secondary" href="{{ path('app_logout') }}">Logout</a>
+        {% else %}
+            <a class="btn btn-success mr-2" href="{{ path('app_login') }}">Login</a>
+            <a class="btn btn-success" href="{{ path('app_register') }}">Register</a>
+        {% endif %}
 
+    public function __toString(): string{
+        return $this->getEmail();
+
+    }
